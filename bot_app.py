@@ -17,6 +17,7 @@ user_sessions: Dict[int, bool] = {}
 
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.message.from_user.id
+    print(f'User {user_id} started the bot')
     user_sessions[user_id] = True  # Start a new session
     await update.message.reply_text(start_response())
 
