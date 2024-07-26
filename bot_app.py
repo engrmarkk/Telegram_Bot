@@ -14,6 +14,8 @@ LINK: Final = "https://www.teamflow.com"
 # Dictionary to track user sessions
 user_sessions: Dict[int, bool] = {}
 
+app = Application.builder().token(TOKEN).build()
+
 
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.message.from_user.id
@@ -65,7 +67,6 @@ async def error(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 if __name__ == '__main__':
     print('Starting bot...')
-    app = Application.builder().token(TOKEN).build()
 
     # Add command handlers
     app.add_handler(CommandHandler("start", start_command))
